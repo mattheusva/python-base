@@ -19,6 +19,9 @@ atividades = [
 
 # Listar alunos em cada atividade por sala
 for nome_atividade, atividade in atividades:
+    print(f"Alunos da atividade {nome_atividade}\n")
+    print("-" * 40)
+
     atividade_sala1 = []
     atividade_sala2 = []
 
@@ -28,6 +31,6 @@ for nome_atividade, atividade in atividades:
         elif aluno in sala2:
             atividade_sala2.append(aluno)
     
-    print(f"{nome_atividade} sala 1", atividade_sala1)
-    print(f"{nome_atividade} sala 2", atividade_sala2)
-    print("-" * 30)
+    print("Sala 1", atividade_sala1)
+    print("Sala 2", atividade_sala2)
+    print("-" * 40)
