@@ -13,10 +13,14 @@ div -> /
 Uso:
 python prefix_calculadora.py sum 5 2
 7
+
+resultados ficam salvos em prefixcalc.log
 """
-__verion__ = "0.1.0"
+__verion__ = "0.1.2"
 
 import sys
+import os
+from datetime import datetime
 
 arguments = sys.argv[1:]
 
@@ -59,5 +63,13 @@ elif operation == "mul":
     result = n1 * n2
 elif operation == "div":
     result = n1 / n2
+
+path = os.curdir
+filepath = os.path.join(path, "prefixcal.log")
+user = os.getenv('USER', 'anonymous')
+timestamp = datetime.now().isoformat()
+
+with open(filepath, "a") as file_:
+    file_.write(f"{timestamp} - {user} - {operation},{n1},{n2} = {result}\n")
 
 print(f"O resultado é {result}")
